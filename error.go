@@ -57,3 +57,7 @@ func (e Error) Error() string {
 func (e Error) String() string {
 	return fmt.Sprintf("%s: %s (%s)", e.Code, e.Message, e.OrigErr.Error())
 }
+
+func (e Error) Unwrap() error {
+	return e.OrigErr
+}
